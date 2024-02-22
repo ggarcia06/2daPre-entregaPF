@@ -1,0 +1,145 @@
+[
+	{
+		"title": "Disco Solido 240GB",
+		"description": "Disco Solido 240GB ADATA",
+		"price": 33900,
+		"thumbnail": "http://....",
+		"code": 36478,
+		"stock": 20,
+		"status": true,
+		"category": "componentes de pc",
+		"id": 1
+	},
+	{
+		"title": "Disco Solido 256GB",
+		"description": "Disco Solido 256GB m.2 ADATA",
+		"price": 40000,
+		"thumbnail": "http://....",
+		"code": 98478,
+		"stock": 36,
+		"status": true,
+		"category": "componentes de pc",
+		"id": 2
+	},
+	{
+		"title": "fuente 600W",
+		"description": "fuente 600W AeroCool",
+		"price": 79500,
+		"thumbnail": "http://....",
+		"code": 82478,
+		"stock": 13,
+		"status": true,
+		"category": "componentes de pc",
+		"id": 3
+	},
+	{
+		"title": "Fuente 500W",
+		"description": "Fuente 500W EVGA",
+		"price": 87300,
+		"thumbnail": "http://....",
+		"code": 29478,
+		"stock": 18,
+		"status": true,
+		"category": "componentes de pc",
+		"id": 4
+	},
+	{
+		"title": "Memoria DDR4 HyperX",
+		"description": "Memoria DDR4 HyperX 8GB",
+		"price": 52900,
+		"thumbnail": "http://....",
+		"code": 54478,
+		"stock": 18,
+		"status": true,
+		"category": "componentes de pc",
+		"id": 5
+	},
+	{
+		"title": "Mouse Kingston",
+		"description": "Mouse Kingston HiperX",
+		"price": 2500,
+		"thumbnail": "http://....",
+		"code": 62300,
+		"stock": 16,
+		"status": true,
+		"category": "perifericos",
+		"id": 6
+	},
+	{
+		"title": "Mouse Genius",
+		"description": "Mouse Genius DX-110",
+		"price": 7500,
+		"thumbnail": "http://....",
+		"code": 98731,
+		"stock": 22,
+		"status": true,
+		"category": "perifericos",
+		"id": 7
+	},
+	{
+		"title": "Mouse Logitech Inalambrico",
+		"description": "Mouse Logitech Inalambrico M280",
+		"price": 26700,
+		"thumbnail": "http://....",
+		"code": 11779,
+		"stock": 25,
+		"status": true,
+		"category": "perifericos",
+		"id": 8
+	},
+	{
+		"title": "Teclado Trust AZOR",
+		"description": "Teclado Trust AZOR GXT 835",
+		"price": 25400,
+		"thumbnail": "http://....",
+		"code": 88552,
+		"stock": 32,
+		"status": true,
+		"category": "perifericos",
+		"id": 9
+	},
+	{
+		"title": "Cartucho EPSON T19568",
+		"description": "Cartucho EPSON T19568 amarillo",
+		"price": 2500,
+		"thumbnail": "http://....",
+		"code": 33669,
+		"stock": 19,
+		"category": "componentes de pc",
+		"status": true,
+		"id": 10
+	},
+	{
+		"title": "pendrive Kingston 32GB",
+		"description": "pendrive Kingston 32GB",
+		"price": 9300,
+		"thumbnail": "http://....",
+		"code": 46289,
+		"stock": 31,
+		"category": "accesorios",
+		"status": true,
+		"id": 11
+	},
+	{
+		"title": "monitor LG",
+		"description": "monitor LG 15",
+		"price": 110000,
+		"thumbnail": "http://....",
+		"code": 55669,
+		"stock": 10,
+		"category": "componentes de pc",
+		"status": true,
+		"id": 12
+	},
+	{
+		"title": "monitor LG",
+		"description": "monitor LG 15",
+		"price": 110000,
+		"thumbnail": "http://....",
+		"code": 55,
+		"stock": 10,
+		"category": "componentes de pc",
+		"status": true,
+		"id": 13
+	}
+]
