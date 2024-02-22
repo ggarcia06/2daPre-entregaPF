@@ -1,13 +1,13 @@
 [
 	{
-		"title": "Disco Solido 240GB",
-		"description": "Disco Solido 240GB ADATA",
-		"price": 33900,
+		"title": "Disco Solido 480GB Kingston",
+		"description": "Disco Solido 480GB Kingston",
+		"price": 65000,
 		"thumbnail": "http://....",
-		"code": 36478,
-		"stock": 20,
-		"status": true,
+		"code": 55663,
+		"stock": 28,
 		"category": "componentes de pc",
+		"status": true,
 		"id": 1
 	},
 	{

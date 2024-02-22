@@ -40,30 +40,18 @@ app.post("/api/products/", async(req, res) => {
     if (!product.title || !product.description  || !product.price || !product.code || !product.stock || !product.category) {
         return res.status(400).send({ status: "error" });
       }
-    
     await products.addObject(product)
-
-    // //POST crear nuevo producto
-    // const data = await fs.readFileSync(pathProducts, "utf-8")
-    // const products = JSON.parse(data)
-    // let product = req.body
-
-    // product.status = true
-    // product.id = 0
-    // products.length === 0 ? (product.id = 1) : (product.id = products[products.length - 1].id + 1)
-    // if (!product.title || !product.description  || !product.price || !product.code || !product.stock || !product.category) {
-    //     return res.status(400).send({ status: "error" });
-    //   }
-    
-    //   products.push(product);
-    //   await fs.writeFileSync(pathProducts, JSON.stringify(products,  null, "\t"))
     return res.status(200).send({ status: "OK" })
     
-
 })
 
-app.put("/api/products/:pid/", () => {
+app.put("/api/products/:pid/", async(req, res) => {
 
+    let pid = parseInt(req.params.pid)
+    let newData = req.body
+    newData.status = true
+    await products.updateObject(pid, newData)
+    return res.status(200).send({ status: "OK" })
     //PUT editar un producto segun su id
 
 })
