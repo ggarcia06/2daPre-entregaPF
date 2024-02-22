@@ -36,6 +36,7 @@ app.get("/api/products/:pid/", async(req, res) => {
 app.post("/api/products/", async(req, res) => {
 
     let product = req.body
+   product.status = true
     if (!product.title || !product.description  || !product.price || !product.code || !product.stock || !product.category) {
         return res.status(400).send({ status: "error" });
       }

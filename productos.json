@@ -141,5 +141,16 @@
 		"category": "componentes de pc",
 		"status": true,
 		"id": 13
+	},
+	{
+		"title": "placa wifi MNG",
+		"description": "placa wifi MNG5",
+		"price": 63000,
+		"thumbnail": "http://....",
+		"code": 36987,
+		"stock": 12,
+		"category": "componentes de pc",
+		"status": true,
+		"id": 14
 	}
 ]

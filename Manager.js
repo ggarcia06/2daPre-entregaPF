@@ -33,8 +33,7 @@ export default class ObjManager {
         if(!validCode){
             console.log("el codigo ingresad ya esta registrado")
         }else{
-            const objects = await this.getObjects()
-            object.status = true
+            const objects = await this.getObjects()            
             object.id = 0
             objects.length === 0 ? (object.id = 1) : (object.id = objects[objects.length - 1].id + 1) 
             objects.push(object)
