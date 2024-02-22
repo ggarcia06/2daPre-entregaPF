@@ -49,6 +49,10 @@ app.put("/api/products/:pid/", async(req, res) => {
 
     let pid = parseInt(req.params.pid)
     let newData = req.body
+    // Para poder actualizar el producto todos los campos deben estar completos
+    if (!newData.title || !newData.description  || !newData.price || !newData.code || !newData.stock || !newData.category) {
+        return res.status(400).send({ status: "error" });
+      }
     newData.status = true
     await products.updateObject(pid, newData)
     return res.status(200).send({ status: "OK" })
@@ -57,6 +61,7 @@ app.put("/api/products/:pid/", async(req, res) => {
 })
 
 app.delete("/api/products/:pid/", () => {
+
 
     //DELETE borrar un producto segun su id
 
