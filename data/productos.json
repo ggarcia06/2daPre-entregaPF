@@ -1,13 +1,13 @@
 [
 	{
-		"title": "Disco Solido 240GB",
-		"description": "Disco Solido 240GB ADATA",
-		"price": 33900,
+		"title": "Disco Solido 480GB adata",
+		"description": "Disco Solido 480GB adata",
+		"price": 65000,
 		"thumbnail": "http://....",
-		"code": 36478,
-		"stock": 20,
-		"status": true,
+		"code": 55663,
+		"stock": 28,
 		"category": "componentes de pc",
+		"status": true,
 		"id": 1
 	},
 	{
@@ -119,5 +119,38 @@
 		"category": "accesorios",
 		"status": true,
 		"id": 11
+	},
+	{
+		"title": "monitor LG",
+		"description": "monitor LG 15",
+		"price": 110000,
+		"thumbnail": "http://....",
+		"code": 55669,
+		"stock": 10,
+		"category": "componentes de pc",
+		"status": true,
+		"id": 12
+	},
+	{
+		"title": "Mother board ASUS",
+		"description": "Mother board ASUS",
+		"price": 278000,
+		"thumbnail": "http://....",
+		"code": 22285,
+		"stock": 9,
+		"category": "componentes de pc",
+		"status": true,
+		"id": 13
+	},
+	{
+		"title": "Mother board ASUS",
+		"description": "Mother board ASUS",
+		"price": 278000,
+		"thumbnail": "http://....",
+		"code": 88899,
+		"stock": 9,
+		"category": "componentes de pc",
+		"status": true,
+		"id": 14
 	}
 ]

@@ -1,6 +1,6 @@
 import express from "express";
-import fs, { write } from "fs";
-import UUID from "node:crypto"
+import fs, { write, writeFileSync } from "fs";
+import UUID from "node:crypto";
 import Manager from "./Manager.js";
 import ObjManager from "./Manager.js";
 
@@ -8,7 +8,8 @@ const app = express()
 const port = 8080
 const pathCart = "./data/carrito.json"
 const pathProducts = "./data/productos.json"
-const products = new ObjManager("./productos.json")
+const products = new ObjManager(pathProducts)
+//const carts = new ObjManager(pathCart)
 
 app.listen(port, () => console.log("Servidor corriendo en puerto " + port))
 
@@ -37,7 +38,8 @@ app.post("/api/products/", async(req, res) => {
 
     let product = req.body
    product.status = true
-    if (!product.title || !product.description  || !product.price || !product.code || !product.stock || !product.category) {
+   const validCode = await products.codeValidator(product.code)
+    if (!product.title || !product.description  || !product.price || !product.code || !product.stock || !product.category || !validCode) {
         return res.status(400).send({ status: "error" });
       }
     await products.addObject(product)
@@ -60,7 +62,13 @@ app.put("/api/products/:pid/", async(req, res) => {
 
 })
 
-app.delete("/api/products/:pid/", () => {
+app.delete("/api/products/:pid/", async(req, res) => {
+    
+
+    // consultar como generar el error desde deleteObject para enviar cod 400
+    let pid = req.params.pid
+    await products.deleteObject(pid)
+    return res.status(200).send({ status: "OK" })
 
 
     //DELETE borrar un producto segun su id
@@ -70,18 +78,29 @@ app.delete("/api/products/:pid/", () => {
 
 //---------------------------------------Carrito------------------------------
 
-app.post("/api/carts/", () => {
+app.post("/api/carts/", async(req, res) => {
 
-//     fs.readFileSync(pathCart, "utf-8")
-//    const ID = randomUUID()
+//     let carrito = await fs.readFileSync(pathCart, 'utf-8')
+//     let parsedCart = JSON.parse(carrito)
 
-//    let cart = {
-//     id: ID,
-//     products: []
-//    }
+//     const ID = randomUUID()
+
+//     let cart = {
+//         id: ID,
+//         products: []
+//     }
+
+//     carrito.push(cart)
+//     let finalData = JSON.stringify(carrito)
+//     fs.promises.writeFileSync(finalData, pathCart, null, "\t")
+
+//    return res.status(200).send({ status: "OK" })
+
 })
 
-app.get("/api/carts/:cid/", () => {
+app.get("/api/carts/:cid/", async(req, res) => {
+
+
 
     //GET mostrar productos que pertenezcan al carrito del id seleccionado
 

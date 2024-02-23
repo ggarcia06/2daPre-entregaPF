@@ -29,18 +29,13 @@ export default class ObjManager {
 
     addObject = async(object) => {
 
-        const validCode = await this.codeValidator(object.code)
-        if(!validCode){
-            console.log("el codigo ingresad ya esta registrado")
-        }else{
             const objects = await this.getObjects()            
             object.id = 0
             objects.length === 0 ? (object.id = 1) : (object.id = objects[objects.length - 1].id + 1) 
             objects.push(object)
 
             await fs.promises.writeFile(this.path, JSON.stringify(objects,  null, "\t"))
-            //return res.status(200).send({ status: "OK" })
-        }
+        
         return object
     }
 
