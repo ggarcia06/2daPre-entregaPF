@@ -141,16 +141,5 @@
 		"category": "componentes de pc",
 		"status": true,
 		"id": 13
-	},
-	{
-		"title": "Mother board ASUS",
-		"description": "Mother board ASUS",
-		"price": 278000,
-		"thumbnail": "http://....",
-		"code": 88899,
-		"stock": 9,
-		"category": "componentes de pc",
-		"status": true,
-		"id": 14
 	}
 ]
