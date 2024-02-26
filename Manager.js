@@ -49,8 +49,10 @@ export default class ObjManager {
 
     deleteObject = async(requestedId ) => {
         const objects = await this.getObjects()
-        let result = objects.find((el => el.id === requestedId))
-        let i = objects.indexOf(result)
+        //let result = objects.find((el => el.id === requestedId))
+        let i = objects.findIndex((el) => el.id === requestedId)
+        console.log("TCL: ObjManager -> deleteObject -> i", i)
+        
         objects.splice(i,1)
 
         await fs.promises.writeFile(this.path, JSON.stringify(objects,  null, "\t"))
