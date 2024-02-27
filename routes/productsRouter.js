@@ -5,7 +5,7 @@ const productsRouter = Router()
 const pathProducts = "./data/productos.json"
 const products = new ObjManager(pathProducts)
 
-    // mostrar todos los productos de la base de datos
+// mostrar todos los productos de la base de datos
 
 productsRouter.get("/", async(req,res) => {
 
