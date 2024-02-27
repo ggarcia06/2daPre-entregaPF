@@ -16,11 +16,9 @@ const port = 8080
 
 app.listen(port, () => console.log("Servidor corriendo en puerto " + port))
 
-app.use(express.json())
-
-
 // // middlewares
 
+app.use(express.json())
 
 // // Routes
 
