@@ -5,6 +5,8 @@ import fs from 'fs';
 const cartRouter = Router()
 const pathCart = "./data/carrito.json"
 const carts = new ObjManager(pathCart)
+const pathProducts = "./data/productos.json"
+const products = new ObjManager(pathProducts)
 
     // crear carrito
 
