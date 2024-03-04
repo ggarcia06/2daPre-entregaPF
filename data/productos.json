@@ -137,20 +137,9 @@
 		"price": 300000,
 		"thumbnail": "http://....",
 		"code": 22285,
-		"stock": 20,
+		"stock": 10,
 		"category": "componentes de pc",
 		"status": true,
 		"id": 13
-	},
-	{
-		"title": "scanner ANK",
-		"description": "scanner ANK",
-		"price": 289000,
-		"thumbnail": "http://....",
-		"code": 89975,
-		"stock": 6,
-		"category": "scanners",
-		"status": true,
-		"id": 14
 	}
 ]

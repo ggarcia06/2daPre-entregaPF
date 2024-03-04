@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import ObjManager from "./../Manager.js";
+import ObjManager from "../src/Manager.js";
 import fs from 'fs';
 
 const cartRouter = Router()

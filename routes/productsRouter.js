@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import ObjManager from "./../Manager.js";
+import ObjManager from "../src/Manager.js";
 
 const productsRouter = Router()
 const pathProducts = "./data/productos.json"
@@ -10,7 +10,7 @@ const products = new ObjManager(pathProducts)
 productsRouter.get("/", async(req,res) => {
 
     const productsdb = await products.getObjects()
-    let limit = parseInt(req.query.limit) || productsdb.length
+    let limit = req.query.limit || productsdb.length
     const finalProducts = productsdb.slice(0,limit)
     res.send (finalProducts)
 
