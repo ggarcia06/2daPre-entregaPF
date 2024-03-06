@@ -1,11 +1,9 @@
 import { Router } from 'express';
 import ObjManager from "../Manager.js";
 import { products } from '../app.js';
+import { io } from '../app.js'
 
 const productsRouter = Router()
-// const pathProducts = "./data/productos.json"
-// const products = appProductsManager.products;
-////////const products = new ObjManager(pathProducts)
 
 // mostrar todos los productos de la base de datos
 
@@ -44,6 +42,9 @@ productsRouter.post("/", async(req, res) => {
         return res.status(400).send({ status: "error" });
       }
     await products.addObject(product)
+
+    // emitir evento para notificar clientes
+    io.emit('updateProducts', {productos: await products.getObjects()});
     return res.status(200).send({ status: "OK" })
     
 })
@@ -60,6 +61,8 @@ productsRouter.put("/:pid/", async(req, res) => {
       }
     newData.status = true
     await products.updateObject(pid, newData)
+// emitir evento para notificar clientes
+    io.emit('updateProducts', {productos: await products.getObjects()});
     return res.status(200).send({ status: "OK" })
 
 })
@@ -75,8 +78,10 @@ productsRouter.delete("/:pid/", async(req, res) => {
     }
     
     await products.deleteObject(pid)
+    // emitir evento para notificar clientes
+    io.emit('updateProducts', {productos: await products.getObjects()});
     return res.status(200).send({ status: "OK" })
 
 })
 
-export default productsRouter
+export {productsRouter}

@@ -1,10 +1,10 @@
 import express from "express";
-import productsRouter from '../src/routes/productsRouter.js'
+import {productsRouter} from '../src/routes/productsRouter.js'
 import cartRouter from '../src/routes/cartRouter.js'
 import handlebars from "express-handlebars"
 import __dirname from "./utils.js"
 import { Server } from 'socket.io'
-import viewRouter from './routes/views.router.js'
+import {viewRouter} from './routes/views.router.js'
 
 
 import ObjManager from "./Manager.js";
@@ -18,6 +18,12 @@ const port = 8080
 
 const server = app.listen(port, () => console.log("Servidor corriendo en puerto " + port))
 const io = new Server(server)
+
+io.on('connection', async(socket) => {
+    console.log('Usuario conectado');
+    // Enviar la lista de productos al usuario recién conectado
+    socket.emit('updateProducts', await products.getObjects());
+});
 
 // // middlewares
 
@@ -40,4 +46,6 @@ app.use("/api/carts/", cartRouter)
 
 app.use(viewRouter)
 
-export { app, products, carts, pathCart };
+
+
+export { app, products, carts, pathCart, io };
