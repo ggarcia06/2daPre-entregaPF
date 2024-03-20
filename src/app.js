@@ -5,13 +5,6 @@ import handlebars from "express-handlebars"
 import __dirname from "./utils.js"
 import { Server } from 'socket.io'
 import {viewRouter} from './routes/views.router.js'
-//import { products } from '../src/routes/productsRouter.js'
-
-
-// import ObjManager from "./dao/services/productManagerFs.js";
-// const pathProducts = "./data/productos.json"
-// const products = new ObjManager(pathProducts)
-
 
 const app = express()
 const port = 8080
