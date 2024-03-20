@@ -1,8 +1,9 @@
 import { Router } from 'express';
-import ObjManager from "../Manager.js";
-import { products } from '../app.js';
+import ObjManager from "../dao/services/productManagerFs.js";
 import { io } from '../app.js'
 
+const pathProducts = "./data/productos.json"
+const products = new ObjManager(pathProducts)
 const productsRouter = Router()
 
 // mostrar todos los productos de la base de datos
@@ -14,7 +15,6 @@ productsRouter.get("/", async(req,res) => {
     const finalProducts = productsdb.slice(0,limit)
     res.send (finalProducts)
     
-
 })
 
 // mostrar producto segun id
@@ -45,7 +45,7 @@ productsRouter.post("/", async(req, res) => {
 
     // emitir evento para notificar clientes
     io.emit('updateProducts', {productos: await products.getObjects()});
-    return res.status(200).send({ status: "OK" })
+    return res.status(200).send(`Se ha agregado el producto ${product.title} con el id ${product.id}`)
     
 })
 
@@ -84,4 +84,4 @@ productsRouter.delete("/:pid/", async(req, res) => {
 
 })
 
-export {productsRouter}
+export {productsRouter, products}

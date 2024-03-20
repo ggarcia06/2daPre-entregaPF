@@ -1,17 +1,17 @@
 import express from "express";
-import {productsRouter} from '../src/routes/productsRouter.js'
+import {productsRouter, products} from '../src/routes/productsRouter.js'
 import cartRouter from '../src/routes/cartRouter.js'
 import handlebars from "express-handlebars"
 import __dirname from "./utils.js"
 import { Server } from 'socket.io'
 import {viewRouter} from './routes/views.router.js'
+//import { products } from '../src/routes/productsRouter.js'
 
 
-import ObjManager from "./Manager.js";
-const pathProducts = "./data/productos.json"
-const products = new ObjManager(pathProducts)
-const pathCart = "./data/carrito.json"
-const carts = new ObjManager(pathCart)
+// import ObjManager from "./dao/services/productManagerFs.js";
+// const pathProducts = "./data/productos.json"
+// const products = new ObjManager(pathProducts)
+
 
 const app = express()
 const port = 8080
@@ -48,4 +48,5 @@ app.use(viewRouter)
 
 
 
-export { app, products, carts, pathCart, io };
+export { app, io };
+//, carts, pathCart

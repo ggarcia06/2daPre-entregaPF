@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import ObjManager from "../Manager.js";
-import { products } from '../app.js';
+//import ObjManager from "../dao/services/productManagerFs.js";
+import { products } from '../routes/productsRouter.js';
 
 
 const viewRouter = Router();
