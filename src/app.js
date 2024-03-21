@@ -7,6 +7,7 @@ import { Server } from 'socket.io'
 import {viewRouter} from './routes/views.router.js'
 import mongoose from "mongoose";
 import productsRouter from "./routes/productsRouterMongo.js"
+import messagesModel from "../src/dao/models/messages.js"
 
 const connectMongoDB = async ()=>{
 
@@ -37,6 +38,14 @@ io.on('connection', async(socket) => {
     console.log('Usuario conectado');
     // Enviar la lista de productos al usuario recién conectado
     socket.emit('updateProducts', await products.getObjects());
+    //esperando recibir mensaje
+    socket.on("message", async(data)=> {
+       
+        await messagesModel.create(data)
+        let msg = await messagesModel.find()
+        io.emit('messageLogs', msg)
+         
+    })
 });
 
 // // middlewares

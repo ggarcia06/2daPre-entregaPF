@@ -5,7 +5,7 @@ const collection = "Messages"
 
 const schema = new Schema({
 
-    email: {
+    user: {
         type: String
     },
     message: {

@@ -16,6 +16,11 @@ viewRouter.get('/realtimeproducts', async(req, res) => {
     res.render('realtimeproducts', {productos: data} )
 })
 
+viewRouter.get('/chat',(req,res)=>{
+    res.render('chat');
+})
+
+
 
 
 export { viewRouter};
