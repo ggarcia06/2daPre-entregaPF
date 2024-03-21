@@ -1,6 +1,6 @@
 import express from "express";
 import {products} from '../src/routes/productsRouter.js'         // fs --para que funcione agregar {productsRouter, }
-import cartRouter from '../src/routes/cartRouter.js'
+import cartRouter from '../src/routes/cartRouterMongo.js'        // fs --cambiar el archivo a cartRouter.js
 import handlebars from "express-handlebars"
 import __dirname from "./utils.js"
 import { Server } from 'socket.io'

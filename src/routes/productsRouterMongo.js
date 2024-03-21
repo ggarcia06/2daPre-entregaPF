@@ -6,13 +6,14 @@ const router = express.Router()
 
 router.get("/all", async(req, res)=>{ 
     
-    try {let limit = req.query.limit
-    let data = await productManager.getAll(limit)
-    res.json({data})
-}catch(error){
-    console.error("Error al obtener todos los productos:", error);
-    res.status(500).json({ error: "Error interno del servidor" });
-}
+    try {
+        let limit = req.query.limit
+        let data = await productManager.getAll(limit)
+        res.json({data})
+    }catch(error){
+        console.error("Error al obtener todos los productos:", error);
+        res.status(500).json({ error: "Error interno del servidor" });
+    }
 
 })
 
