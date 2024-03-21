@@ -1,3 +1,6 @@
+
+// // ---------------------------------productRouter para productManagerFs-------------------------------
+
 import { Router } from 'express';
 import ObjManager from "../dao/services/productManagerFs.js";
 import { io } from '../app.js'

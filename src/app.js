@@ -1,16 +1,37 @@
 import express from "express";
-import {productsRouter, products} from '../src/routes/productsRouter.js'
+import {products} from '../src/routes/productsRouter.js'         // fs --para que funcione agregar {productsRouter, }
 import cartRouter from '../src/routes/cartRouter.js'
 import handlebars from "express-handlebars"
 import __dirname from "./utils.js"
 import { Server } from 'socket.io'
 import {viewRouter} from './routes/views.router.js'
+import mongoose from "mongoose";
+import productsRouter from "./routes/productsRouterMongo.js"
+
+const connectMongoDB = async ()=>{
+
+    const DB_URL = "mongodb+srv://grmngarcia44:Es0iM0EcTv3BmZXR@cluster0.gb6imdp.mongodb.net/ecommerce?retryWrites=true&w=majority" 
+    
+    try{
+    
+        await mongoose.connect(DB_URL)
+        console.log("Conectado con Mongoose!")
+    
+    }catch(error){
+        console.error("No se pudo conectar a la DB", error)
+        process.exit()
+    }
+    }
+    
+
 
 const app = express()
-const port = 8080
+const PORT = process.env.PORT || 8080
 
-const server = app.listen(port, () => console.log("Servidor corriendo en puerto " + port))
+const server = app.listen(PORT, () => console.log("Servidor corriendo en puerto " + PORT))
 const io = new Server(server)
+
+connectMongoDB()
 
 io.on('connection', async(socket) => {
     console.log('Usuario conectado');
@@ -33,7 +54,7 @@ app.engine('handlebars', handlebars.engine())
 
 app.use(viewRouter)
 
-app.use("/api/products/", productsRouter)
+app.use("/api/products", productsRouter)
 
 app.use("/api/carts/", cartRouter)
 
@@ -41,5 +62,5 @@ app.use(viewRouter)
 
 
 
+
 export { app, io };
-//, carts, pathCart
