@@ -4,7 +4,7 @@ import express from 'express'
 const cartManager = new CartManager()
 const router = express.Router()
 
-router.post("/create", async(req, res)=>{
+router.post("/", async(req, res)=>{
 
     try{
         let result = await cartManager.createCart()

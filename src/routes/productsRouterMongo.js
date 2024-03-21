@@ -4,7 +4,7 @@ import express from 'express'
 const productManager = new ProductManager()
 const router = express.Router()
 
-router.get("/all", async(req, res)=>{ 
+router.get("/", async(req, res)=>{ 
     
     try {
         let limit = req.query.limit
@@ -17,7 +17,7 @@ router.get("/all", async(req, res)=>{
 
 })
 
-router.post("/add", async(req, res)=>{ 
+router.post("/", async(req, res)=>{ 
    try{
     //const {title,description,category, thumbnail,code,price, stock, status} = req.body 
     const newProduct = req.body
@@ -42,7 +42,7 @@ router.get("/:pid/", async(req, res) => {
 }
 })
 
-router.put("/edit/:pid", async(req, res) =>{
+router.put("/:pid", async(req, res) =>{
     try{
         let pid = req.params.pid
         let updatedProduct = req.body
@@ -54,7 +54,7 @@ router.put("/edit/:pid", async(req, res) =>{
     }
 })
 
-router.delete("/delete/:pid", async(req, res) => {
+router.delete("/:pid", async(req, res) => {
    try {let pid = req.params.pid
     let product = await productManager.getById(pid)
     await productManager.deleteProduct(pid)
