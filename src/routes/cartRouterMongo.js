@@ -36,7 +36,7 @@ router.post("/:cid/product/:pid/", async(req, res) => {
     }
 })
 
-router.delete("/:cid/product/:pid/", async(req, res) =>{
+router.delete("/:cid/products/:pid/", async(req, res) =>{
     try{
         let cid = req.params.cid
         let pid = req.params.pid
