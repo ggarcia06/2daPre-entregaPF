@@ -7,8 +7,11 @@ const router = express.Router()
 router.get("/", async(req, res)=>{ 
     
     try {
-        let limit = req.query.limit
-        let data = await productManager.getAll(limit)
+        let limit = parseInt(req.query.limit)
+        let page = parseInt(req.query.page)
+        let query = req.query.query
+        let sort = req.query.sort ? { price: parseInt(req.query.sort) } : {};
+        let data = await productManager.getAll(limit, page, query, sort)
         res.json({data})
     }catch(error){
         console.error("Error al obtener todos los productos:", error);

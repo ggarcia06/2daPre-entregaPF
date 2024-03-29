@@ -6,9 +6,12 @@ export default class ProductManager {
         console.log("trabajando con productManager")
     }
 
-    getAll = async (limit) => {
-
-        let result = await productsModel.find().limit(limit)
+    getAll = async (lim, pag, query, srt) => {
+        let limit = lim || 10
+        let page = pag || 1
+        let sort = srt || {}
+        let search = query 
+        let result = await productsModel.paginate({},{limit: limit, page: page, sort: sort})
         return result
 
     }

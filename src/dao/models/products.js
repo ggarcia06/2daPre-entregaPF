@@ -1,9 +1,10 @@
 import mongoose from 'mongoose';
+import mongoosePaginate from 'mongoose-paginate-v2'
 const { Schema } = mongoose;
 
 const collection = "Products"   // para poder exportarlo como un modulo de nodejs debo aclarar nombre e mi collection 
 
-const schema = new Schema({
+const schema = mongoose.Schema({
 
     title: {
         type: String,
@@ -41,6 +42,8 @@ const schema = new Schema({
 
 })
 
-const productsModel = mongoose.model(collection, schema) 
+schema.plugin(mongoosePaginate);
 
-export default productsModel
+const productsModel = mongoose.model(collection, schema); 
+
+export default productsModel;
