@@ -9,9 +9,10 @@ router.get("/", async(req, res)=>{
     try {
         let limit = parseInt(req.query.limit)
         let page = parseInt(req.query.page)
-        let query = req.query.query
+        let category = req.query.category
+        let stock = req.query.stock
         let sort = req.query.sort ? { price: parseInt(req.query.sort) } : {};
-        let data = await productManager.getAll(limit, page, query, sort)
+        let data = await productManager.getAll(limit, page, category, stock, sort)
         res.json({data})
     }catch(error){
         console.error("Error al obtener todos los productos:", error);
