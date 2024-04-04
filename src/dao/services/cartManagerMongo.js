@@ -8,7 +8,7 @@ export default class cartManager {
     }
 
     getCartById = async (id) => {
-        let result = await cartsModel.findById(id)
+        let result = await cartsModel.findOne({_id:id})
         return result
     }
     createCart = async () => {

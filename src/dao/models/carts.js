@@ -7,13 +7,22 @@ const schema = new Schema({
 
     products: [{
         product: {
-            type: mongoose.Schema.Types.ObjectId, ref: "products"
+            type: mongoose.Schema.Types.ObjectId, 
+            ref: "Products"
         },
         quantity: {
             type: Number,
             require: true
         }
     }]
+})
+
+// schema.pre('find', function(){
+//     this.populate('products.product');
+// })
+
+schema.pre('findOne', function(){
+    this.populate('products.product');
 })
 
 const cartsModel = mongoose.model(collection, schema) 
